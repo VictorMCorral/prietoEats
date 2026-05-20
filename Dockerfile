@@ -1,18 +1,8 @@
-FROM postgres:16
+FROM webdevops/php-nginx:8.2-alpine
 
-# Variables de entorno de PostgreSQL
-ENV POSTGRES_DB=prieto_eats
-ENV POSTGRES_USER=victor
-ENV POSTGRES_PASSWORD=noteolvides01
+# Copy and use custom entrypoint script
+COPY entrypoint.sh /init-entrypoint.sh
+RUN chmod +x /init-entrypoint.sh
 
-# Puerto por defecto
-EXPOSE 5432
-
-# El contenedor arranca automáticamente postgres
-CMD ["postgres"]
-
-
-### Para construir la imagen, usa el siguiente comando en la terminal:
-# docker build -t mi_postgres:1.0 .
-### Para correr el contenedor, usa el siguiente comando en la terminal:
-# docker run -d -p 5432:5432 --name contenedor_prietoEats mi_postgres:1.0
+# Replace the default entrypoint with our custom one
+ENTRYPOINT ["/init-entrypoint.sh"]
