@@ -13,27 +13,14 @@
 
         <!-- Contenido Colapsable -->
         <div class="collapse navbar-collapse" id="navMain">
-            <!-- Nav Links Central -->
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a href="#menu" class="nav-link nav-link-custom">
-                        <i class="bi bi-grid me-1"></i> Men\u00fa
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link nav-link-custom">
-                        <i class="bi bi-info-circle me-1"></i> Info
-                    </a>
-                </li>
-            </ul>
 
             <!-- Auth Buttons -->
-            <div class="d-flex align-items-center gap-2 auth-buttons-mobile">
+            <div class="d-flex align-items-center gap-2 ms-auto auth-buttons-mobile">
                 @guest
-                    <a href="{{ route('login_prieto') }}" class="btn btn-auth btn-login">
+                    <a href="{{ route('login') }}" class="btn btn-auth btn-login">
                         <i class="bi bi-box-arrow-in-right me-1"></i> Entrar
                     </a>
-                    <a href="{{ route('register_prieto') }}" class="btn btn-auth btn-register">
+                    <a href="{{ route('register') }}" class="btn btn-auth btn-register">
                         <i class="bi bi-person-plus me-1"></i> Registrarse
                     </a>
                 @endguest
@@ -99,7 +86,7 @@
 
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <form method="POST" action="{{ route('logout_prieto') }}" class="m-0">
+                                <form method="POST" action="{{ route('logout') }}" class="m-0">
                                     @csrf
                                     <button type="submit" class="dropdown-item text-danger d-flex align-items-center gap-2">
                                         <i class="bi bi-box-arrow-right"></i> Salir

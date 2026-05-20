@@ -57,3 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
+
+// Route aliases for older naming convention used in views
+Route::redirect('/login_prieto', '/login');
+Route::redirect('/register_prieto', '/register');
+Route::post('/logout_prieto', [AuthenticatedSessionController::class, 'destroy'])->name('logout_prieto');

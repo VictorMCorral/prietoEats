@@ -20,7 +20,7 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('register_prieto') }}">
+        <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div class="form-floating mb-3">
@@ -58,7 +58,7 @@
 
         <div class="mt-4 pt-2">
             <p class="small text-muted mb-0">¿Ya tienes una cuenta?</p>
-            <a href="{{ route('login_prieto') }}" class="auth-link">Inicia sesión aquí</a>
+            <a href="{{ route('login') }}" class="auth-link">Inicia sesión aquí</a>
         </div>
     </div>
 </div>

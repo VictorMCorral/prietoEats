@@ -65,7 +65,7 @@ class offerController extends Controller
                 $offer = Offer::findOrFail($id);
                 $offer->delete();
             } catch (\Throwable $th) {
-                return back()->withErrors(['error' => 'No se pudo elimnar la oferta.']);
+                return back()->withErrors(['error' => 'No se pudo eliminar la oferta.']);
             }
 
             return redirect()->route('admin.offers.index');

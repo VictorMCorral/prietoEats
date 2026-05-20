@@ -105,7 +105,7 @@ class productController extends Controller
             $producto = Product::findOrFail($id);
             $producto->delete();
         } catch (\Throwable $th) {
-            return back()->withErrors(['error' => 'No se pudo elimnar el producto.']);
+            return back()->withErrors(['error' => 'No se pudo eliminar el producto.']);
         }
 
         return redirect()->route('admin.products.index')->with('success', 'Producto creado correctamente');

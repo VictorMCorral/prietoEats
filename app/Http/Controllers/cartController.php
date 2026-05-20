@@ -48,7 +48,7 @@ class cartController extends Controller
         $offerId = $productOffer->offer_id;
         $productName = $productOffer->product->name;
 
-        // 2. Aseguramos que el índice de la oferta exista en el carrito
+        // 2. Aseguramos que el índice de la oferta existe en el carrito
         if (!isset($carrito[$offerId])) {
             $carrito[$offerId] = [];
         }
@@ -121,7 +121,12 @@ class cartController extends Controller
 
         if (isset($carrito[$offerId])) {
             if (isset($carrito[$offerId][$productOfferId])) {
-                $carrito[$offerId][$productOfferId]--;
+                // Only decrease if quantity > 1, otherwise remove item
+                if ($carrito[$offerId][$productOfferId] > 1) {
+                    $carrito[$offerId][$productOfferId]--;
+                } else {
+                    unset($carrito[$offerId][$productOfferId]);
+                }
             }
         }
 
